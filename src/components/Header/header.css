@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: tomato;
+  font-size: 1em;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+}

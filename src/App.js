@@ -1,18 +1,26 @@
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
 
-function Welcome(props) {
-  return <div><h1>{props.myText}</h1></div>;
-}
+import Header from './components/Header';
+import Login from './components/Login';
+import Register from './components/Register';
+import Welcome from './components/Welcome';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <Welcome myText="Welcome to tasks app"/>
-       <Welcome myText="Enjoy with my tasks app"/>
-      </header>
+    <div className='App'>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Welcome myText="Welcome to tasks app" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="*" element={<Welcome myText="Page not found" />} />
+      </Routes>
+      <Footer />
     </div>
-  );
-}
+  )
+};
 
 export default App;
