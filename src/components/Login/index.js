@@ -1,12 +1,30 @@
 import React from 'react';
 // import { useState } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import './login.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
+  const navigate = useNavigate();
+
+  const url = 'https://datata-tasks-app.herokuapp.com/api';
+
+  const onFinish = async (values) => {
+    try {
+      const login = await axios.post(url + '/auth/login', values);
+
+      if (!login.data.success) {
+        return message.error(login.data.message);
+      }
+
+      localStorage.setItem('token', login.data.token);
+
+      navigate('/home');
+    } catch (error) { 
+      return message.error('Something went wrong, try again later');
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
