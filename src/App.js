@@ -38,7 +38,7 @@ function App() {
     <div className='App'>
       <Header userLogged={userLogged}/>
       <Routes>
-        <Route path="/react_tasks_app-" element={<Welcome myText="Welcome to tasks app" />} />
+        <Route path="/react_tasks_app-" element={<Welcome myText="Welcome to datata tasks app" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Welcome myText="You are logged" />} />
